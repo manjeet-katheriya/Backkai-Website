@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backkai -  Services. Global Talent. Delivered Fast.</title>
+    <meta name="description" content="Backkai offers expert video editing, accounting, web development, truck dispatching, and e-commerce services with US-based sales and global talent.">
+    
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* --- 1. Design System & Global Styles --- */
+        :root {
+            --bg-dark-primary: #121212;
+            --bg-dark-secondary: #1B1B1B;
+            --accent-blue: #007BFF;
+            --accent-cyan-hover: #00FFFF;
+            --text-primary: #F5F5F5;
+            --text-secondary: #A9A9A9;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark-primary);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        h1 { font-size: 3rem; line-height: 1.2; }
+        h2 { font-size: 2.25rem; margin-bottom: 2rem; text-align: center; }
+        h3 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent-cyan-hover);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-bg {
+             background-color: var(--bg-dark-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-cyan-hover);
+            color: var(--bg-dark-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-secondary);
+        }
+        .btn-secondary:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-dark-primary);
+            border-color: var(--text-primary);
+        }
+
+        /* --- 2. Navigation --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+        .nav-dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-dark-secondary);
+            padding: 1rem;
+            border-radius: var(--border-radius-md);
+            list-style: none;
+            width: 200px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem;
+            color: var(--text-secondary);
+        }
+        .dropdown-menu a:hover {
+            color: var(--text-primary);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .mobile-menu-button { display: none; } /* For mobile responsiveness */
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 8rem 0;
+            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop') no-repeat center center/cover;
+        }
+        .hero p {
+            max-width: 600px;
+            margin: 1.5rem auto 2.5rem;
+            font-size: 1.1rem;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* --- 4. Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: var(--bg-dark-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: var(--accent-blue);
+        }
+        .service-card i {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.25rem;
+        }
+
+        /* --- 5. Why Choose Us Section --- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .why-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        .why-card i {
+            color: var(--accent-blue);
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        
+        /* --- 6. Testimonials Carousel --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-card {
+            background: var(--bg-dark-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--accent-blue);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-info strong {
+            color: var(--text-primary);
+            display: block;
+        }
+
+        /* --- 7. Pricing Preview --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .pricing-card {
+            background: var(--bg-dark-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card h3 {
+            color: var(--accent-blue);
+        }
+        .price {
+            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            margin: 1rem 0;
+        }
+        .price span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin: 1rem 0;
+            flex-grow: 1;
+        }
+        .pricing-card ul li {
+            padding: 0.5rem 0;
+        }
+        .pricing-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* --- 8. Contact Form --- */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-dark-secondary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-md);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-form .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- 9. Footer --- */
+        footer {
+            background-color: var(--bg-dark-secondary);
+            color: var(--text-secondary);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-col ul a {
+            color: var(--text-secondary);
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- 10. Floating Chat Button --- */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+        .chat-button:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-cyan-hover);
+        }
+        .chat-button i {
+            color: white;
+        }
+        
+        /* --- 11. Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 4rem 0; }
+            
+            .nav-menu {
+                display: none; /* Hide menu on mobile. JS needed for full hamburger menu. */
+            }
+            .nav-cta {
+                display: none;
+            }
+            .mobile-menu-button {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--text-primary);
+                cursor: pointer;
+            }
+            
+            .hero { padding: 6rem 0; }
+            .hero-buttons { flex-direction: column; gap: 1.5rem; }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Chat Button -->
+    <a href="#contact" class="chat-button">
+        <i data-feather="message-square" style="color: white;"></i>
+    </a>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Backkai</a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="#services" class="nav-link">Services ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#services">Video Editing</a></li>
+                        <li><a href="#services">Accounting</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Truck Dispatch</a></li>
+                        <li><a href="#services">E-Commerce</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#why-us" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+             <a href="#contact" class="btn btn-primary nav-cta">Get Quote</a>
+            <button class="mobile-menu-button">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Seamless Services. Global Talent. Delivered Fast.</h1>
+                <p>Backkai is your all-in-one operational partner. We handle the complexities of video editing, finance, web dev, and more, so you can focus on growth.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                    <a href="#" class="btn btn-secondary">Book a Call</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Overview Grid -->
+        <section id="services">
+            <div class="container">
+                <h2>Your Complete Back-Office Solution</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i data-feather="film" width="48" height="48"></i>
+                        <h3>Video Editing</h3>
+                        <p>Engaging video content for social, ads, and corporate use.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-feather="dollar-sign" width="48" height="48"></i>
+                        <h3>Accounting</h3>
+                        <p>Accurate bookkeeping and financial reporting for clarity.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-feather="code" width="48" height="48"></i>
+                        <h3>Web Dev</h3>
+                        <p>Modern, responsive websites that drive business growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-feather="truck" width="48" height="48"></i>
+                        <h3>Truck Dispatch</h3>
+                        <p>Efficient logistics and dispatch to keep your fleet moving.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-feather="shopping-cart" width="48" height="48"></i>
+                        <h3>E-Commerce</h3>
+                        <p>Complete management for your online storefronts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Backkai Section -->
+        <section id="why-us" class="section-bg">
+            <div class="container">
+                <h2>Your Strategic Advantage</h2>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <i data-feather="zap" width="32" height="32"></i>
+                        <div>
+                            <h3>Fast Turnaround</h3>
+                            <p>We deliver high-quality work on your schedule, powered by efficient processes and global teams.</p>
+                        </div>
+                    </div>
+                    <div class="why-card">
+                        <i data-feather="headphones" width="32" height="32"></i>
+                        <div>
+                            <h3>US-Based Sales & Support</h3>
+                            <p>Get dedicated, clear communication from our US-based team. We’re in your time zone.</p>
+                        </div>
+                    </div>
+                    <div class="why-card">
+                        <i data-feather="globe" width="32" height="32"></i>
+                        <div>
+                            <h3>Vetted Global Talent</h3>
+                            <p>Access a curated pool of top-tier international experts without the hiring overhead.</p>
+                        </div>
+                    </div>
+                    <div class="why-card">
+                        <i data-feather="shield" width="32" height="32"></i>
+                        <div>
+                            <h3>Affordable & Transparent</h3>
+                            <p>Scale your business with cost-effective solutions. No hidden fees, just clear value.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2>Trusted by Innovative Companies</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Working with Backkai has been a game-changer. Their web development team is top-notch, and the fast turnaround allowed us to launch ahead of schedule. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" alt="Author 1">
+                            <div class="author-info">
+                                <strong>John Carter</strong>
+                                <span>CEO, Innovate Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The video editing service is incredible. They took our raw footage and turned it into polished, professional content that has significantly boosted our social media engagement."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop" alt="Author 2">
+                            <div class="author-info">
+                                <strong>Sarah Chen</strong>
+                                <span>Marketing Director, Creative Co.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Preview Section -->
+        <section id="pricing" class="section-bg">
+            <div class="container">
+                <h2>Simple Plans to Help You Scale</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Creative</h3>
+                        <p class="price">$499<span>/mo</span></p>
+                        <ul>
+                            <li>Video Editing</li>
+                            <li>Social Media Clips</li>
+                            <li>Basic Motion Graphics</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Choose Plan</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Financial</h3>
+                        <p class="price">$299<span>/mo</span></p>
+                        <ul>
+                            <li>Bookkeeping</li>
+                            <li>Monthly Reports</li>
+                            <li>Expense Tracking</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Choose Plan</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Technical</h3>
+                        <p class="price">$199<span>/mo</span></p>
+                        <ul>
+                            <li>Web Maintenance</li>
+                            <li>Plugin Updates</li>
+                            <li>Performance Monitoring</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="pricing-cta">
+                    <a href="#" class="btn btn-primary btn-lg">View All Pricing Details</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Ready to Elevate Your Business?</h2>
+                <p style="text-align:center; max-width: 600px; margin: -1rem auto 3rem;">Let's talk. Fill out the form below or use our live chat to get started immediately.</p>
+                <form class="contact-form" onsubmit="alert('Thank you for your message!'); return false;">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service of Interest</label>
+                        <select id="service" class="form-control">
+                            <option>Video Editing</option>
+                            <option>Accounting & Bookkeeping</option>
+                            <option>Web Development</option>
+                            <option>Truck Dispatching</option>
+                            <option>E-commerce Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Backkai</h4>
+                    <p>Your all-in-one operational partner, designed to help you scale.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect On</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/backkaicom/"><i data-feather="instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/backkai/"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Backkai LLC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Activate Feather Icons
+        feather.replace();
+    </script>
+
+</body>
+</html>
